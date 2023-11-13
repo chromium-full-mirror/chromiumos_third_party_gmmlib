@@ -294,9 +294,16 @@ typedef enum __NATIVEGTTYPE
 #define GFX_GET_CURRENT_RENDERCORE(p)  ( (p).eRenderCoreFamily )
 
 // This macro returns true if the product family is discrete
-#define GFX_IS_DISCRETE_FAMILY(p)      ( ( GFX_GET_CURRENT_PRODUCT(p) == IGFX_DG1 ) ||  \
-                                         ( GFX_GET_CURRENT_PRODUCT(p) == IGFX_XE_HP_SDV ) || \
-					 ( GFX_GET_CURRENT_PRODUCT(p) == IGFX_DG2 ) )
+#define GFX_IS_DISCRETE_PRODUCT(pf)    ( ( pf == IGFX_DG1 )             ||   \
+                                         ( pf == IGFX_DG2 )             ||   \
+                                         ( pf == IGFX_XE_HP_SDV ) )
+
+#define GFX_IS_DISCRETE_FAMILY(p)      GFX_IS_DISCRETE_PRODUCT(GFX_GET_CURRENT_PRODUCT(p))
+
+#define GFX_IS_INTEGRATED_PRODUCT(pf)  (!GFX_IS_DISCRETE_PRODUCT(pf))
+
+#define GFX_IS_INTEGRATED_FAMILY(p)    (!GFX_IS_DISCRETE_FAMILY(p))
+
 
 // These macros return true/false depending on the current render family.
 #define GFX_IS_NAPA_RENDER_FAMILY(p)   ( ( GFX_GET_CURRENT_RENDERCORE(p) == IGFX_GEN3_CORE )    ||   \
@@ -1922,14 +1929,17 @@ typedef enum __NATIVEGTTYPE
 #define DEV_ID_56C0                             0x56C0
 #define DEV_ID_56C1                             0x56C1
 
-
-// RPL-P
+// RPL-P/U
 #define DEV_ID_A7A0                             0xA7A0
 #define DEV_ID_A7A1                             0xA7A1
 #define DEV_ID_A7A8                             0xA7A8
 #define DEV_ID_A7A9                             0xA7A9
 #define DEV_ID_A720                             0xA720
 #define DEV_ID_A721                             0xA721
+#define DEV_ID_A7AA                             0xA7AA
+#define DEV_ID_A7AB                             0xA7AB
+#define DEV_ID_A7AC                             0xA7AC
+#define DEV_ID_A7AD                             0xA7AD
 
 // ADL-N
 #define DEV_ID_46D0                             0x46D0
