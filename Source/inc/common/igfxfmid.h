@@ -1886,6 +1886,7 @@ typedef enum __NATIVEGTTYPE
 #define DEV_ID_0BDB                            0x0BDB
 #define DEV_ID_0B69                            0x0B69
 #define DEV_ID_0B6E                            0x0B6E
+#define DEV_ID_0BD4                            0x0BD4
 
 // Macro to identify PVC device ID
 #define GFX_IS_XT_CONFIG(d) ((d == DEV_ID_0BD5)             ||  \
@@ -1896,7 +1897,8 @@ typedef enum __NATIVEGTTYPE
                              (d == DEV_ID_0BDA)             ||  \
                              (d == DEV_ID_0BDB)		    ||  \
                              (d == DEV_ID_0B69)             ||  \
-			     (d == DEV_ID_0B6E))
+			     (d == DEV_ID_0B6E)             ||  \
+			     (d == DEV_ID_0BD4))
 
 //DG2 Device IDs
 #define DEV_ID_4F80                             0x4F80
@@ -1934,6 +1936,7 @@ typedef enum __NATIVEGTTYPE
 #define DEV_ID_56BD                             0x56BD
 #define DEV_ID_56C0                             0x56C0
 #define DEV_ID_56C1                             0x56C1
+#define DEV_ID_56C2                             0x56C2
 
 // RPL-P/U
 #define DEV_ID_A7A0                             0xA7A0
@@ -1966,6 +1969,11 @@ typedef enum __NATIVEGTTYPE
 // ARL-S
 #define DEV_ID_7D67                             0x7D67
 
+// ARL-H
+#define DEV_ID_7D41                             0x7D41
+#define DEV_ID_7D51                             0x7D51
+#define DEV_ID_7DD1                             0x7DD1
+
 #define MGM_HAS     0
 
 //#define SDG_HAS      1              //Reserve place for Springdale-G HAS
@@ -1979,7 +1987,11 @@ typedef enum __NATIVEGTTYPE
                                  ( d == DEV_ID_5695 )             ||   \
                                  ( d == DEV_ID_56B0 )             ||   \
                                  ( d == DEV_ID_56B1 )             ||   \
-                                 ( d == DEV_ID_56C1 )             ||   \
+                                 ( d == DEV_ID_56BA )             ||   \
+                                 ( d == DEV_ID_56BB )             ||   \
+                                 ( d == DEV_ID_56BC )             ||   \
+                                 ( d == DEV_ID_56BD )             ||   \
+				 ( d == DEV_ID_56C1 )             ||   \
                                  ( d == DEV_ID_4F87 )             ||   \
                                  ( d == DEV_ID_4F88 ))
 
@@ -1990,6 +2002,7 @@ typedef enum __NATIVEGTTYPE
                                       ( d == DEV_ID_5691 )                              ||   \
                                       ( d == DEV_ID_5692 )                              ||   \
                                       ( d == DEV_ID_56C0 )                              ||   \
+	                              ( d == DEV_ID_56C2 )                              ||   \
                                       ( d == DEV_ID_4F80 )                              ||   \
                                       ( d == DEV_ID_4F81 )                              ||   \
                                       ( d == DEV_ID_4F82 )                              ||   \
@@ -2007,6 +2020,11 @@ typedef enum __NATIVEGTTYPE
 
 // Macro to identify ARL-S Device ID
 #define GFX_IS_ARL_S(d)  ( ( d == DEV_ID_7D67 ) )
+
+// Macro to identify ARL-H Device ID
+#define GFX_IS_ARL_H(d)  ( ( d == DEV_ID_7D41 )  ||   \
+                         ( d == DEV_ID_7D51 )    ||   \
+                         ( d == DEV_ID_7DD1 ))
 
 //we define the highest cap and lower cap of stepping IDs
 #define SI_REV_ID(lo,hi) (lo | hi<<16)
