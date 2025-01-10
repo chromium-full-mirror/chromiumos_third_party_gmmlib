@@ -43,7 +43,8 @@ GMM_STATUS GmmLib::GmmXe2_LPGCachePolicy::InitCachePolicy()
 
     // Define index of cache element
     uint32_t Usage          = 0;
-    uint32_t ReservedPATIdx = 13; /* Rsvd PAT section 13-19 */
+    uint32_t ReservedPATIdx = 16; /* Rsvd PAT section 16-19 */
+    uint32_t ReservedPATIdxEnd = 20;
 
 #if (_WIN32 && (_DEBUG || _RELEASE_INTERNAL))
     void *pKmdGmmContext = NULL;
@@ -396,9 +397,6 @@ uint32_t GMM_STDCALL GmmLib::GmmXe2_LPGCachePolicy::CachePolicyGetPATIndex(GMM_R
         __GMM_ASSERT(false);
     }
 
-#if (defined __linux__ || defined(WDDM_LINUX))
-    IsCpuCacheable = false;
-#endif
     // requested compressed and coherent
     if (CompressionEnable && IsCpuCacheable)
     {
